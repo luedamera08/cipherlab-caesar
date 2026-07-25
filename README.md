@@ -49,7 +49,7 @@ bun install
 bun run dev
 ```
 
-The app will be available at 'https://cipherlab-caesar.vercel.app/`.
+The app will be available at https://cipherlab-caesar.vercel.app/
 
 ### Build for Production
 

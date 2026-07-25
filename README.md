@@ -2,7 +2,7 @@
 
 An interactive educational web app that teaches the Caesar Cipher through hands-on encryption/decryption, practice challenges, and step-by-step explanations. Built for a student cybersecurity portfolio.
 
-🔗 **Live site:** [https://001c56d76c9eb5615835d5bc487eac40.ctonew.app](https://001c56d76c9eb5615835d5bc487eac40.ctonew.app)
+🔗 **Live site:** https://cipherlab-caesar.vercel.app/
 
 ## What It Is
 

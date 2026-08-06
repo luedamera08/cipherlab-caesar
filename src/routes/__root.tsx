@@ -4,7 +4,8 @@ import {
   Scripts,
   createRootRoute,
 } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { registerSW } from "virtual:pwa-register";
+import { useEffect, type ReactNode } from "react";
 
 import appCss from "~/styles/app.css?url";
 
@@ -14,15 +15,28 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "CipherLab — Caesar Cipher" },
-      { name: "description", content: "An interactive educational tool for learning about the Caesar Cipher and classical cryptography." },
+      {
+        name: "description",
+        content:
+          "An interactive educational tool for learning about the Caesar Cipher and classical cryptography.",
+      },
+      { name: "theme-color", content: "#0B1020" },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "manifest", href: "/manifest.webmanifest" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon-180x180.png" },
+    ],
   }),
   notFoundComponent: () => <div>Page not found</div>,
   component: RootComponent,
 });
 
 function RootComponent() {
+  useEffect(() => {
+    registerSW({ immediate: true });
+  }, []);
+
   return (
     <RootDocument>
       <Outlet />

@@ -4,7 +4,7 @@ import {
   Scripts,
   createRootRoute,
 } from "@tanstack/react-router";
-import { registerSW } from "virtual:pwa-register";
+
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "~/styles/app.css?url";
@@ -33,9 +33,11 @@ export const Route = createRootRoute({
 });
 
 function RootComponent() {
-  useEffect(() => {
-    registerSW({ immediate: true });
-  }, []);
+useEffect(() => {
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/sw.js");
+  }
+}, []);
 
   return (
     <RootDocument>
